@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+.row{
+   
+    font-size:  0;
+    color: azure;
+   
+
+}
+.col
+{
+    display: inline-block;
+    font-size :30px;
+
+}
+.o{
+    width: 50%;
+    background: aquamarine;
+}
+.t{
+    width: 50%;
+    background: red;
+}
+body{
+    margin: 0;
+}

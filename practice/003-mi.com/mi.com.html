@@ -1,89 +1,210 @@
-<div class="row nav"><!--首航-->
-    <div class="col link-group left"><!--链接组 左-->
-        <a href="#">Item</a>
-        <a href="#">Item</a>
-        <a href="#">Item</a>
-        <a href="#">Item</a>
-        <a href="#">Item</a>
-    </div>
-    <div class="col link-group right"><!--链接组 右-->
-        <a href="#">Item</a>
-        <a href="#">Item</a>
-    </div>
-</div>
-<div class="row first-screen"><!--首屏-->
-    <div class="row The main promotion"><!--主促销-->
-        <div class="col goods category">商品分类</div>
-        <div class="col Carousel">轮播</div>
-    </div>
-    <div class="row Auxiliary promotion"><!--辅促销-->
+<html>
 
-    </div>
-    <div class="row  flash sales"><!--限时抢购-->
+<head>
+    <style>
+        * {
+            background-origin: padding-box;
+        }
 
-    </div>
+        div {
+            background: beige;
+        }
 
-</div>
-<div class="row main"><!--主体-->
-  <div class="row card deck"><!--卡片组-->
-         <div class="row description bar"><!--描述栏-->
-           <div class="col name lift">名称</div>
-           <div class="col link right">链接</div>
-         </div>
-         <div class="row card field"><!--卡片栏-->
-            <div class="col Deck head"><!--卡片组头-->
-            </div>
-            <div class="The deck body"><!--卡片组体-->
-                <div class="row card row"><!--卡片行-->
-                 <div class="col card"><!--卡片-->
-                      <div class="row picture">图片</div>
-                      <div class="row describe">描述</div>
-                      <div class="row price">价格</div>
-                 </div>
-                 <div class="col card"><!--卡片-->
-                    <div class="row picture">图片</div>
-                    <div class="row describe">描述</div>
-                    <div class="row price">价格</div>
-                 </div>
-                 <div class="col card"><!--卡片-->
-                    <div class="row picture">图片</div>
-                    <div class="row describe">描述</div>
-                    <div class="row price">价格</div>
-                 </div>
-                 <div class="col card"><!--卡片-->
-                    <div class="row picture">图片</div>
-                    <div class="row describe">描述</div>
-                    <div class="row price">价格</div>
-                 </div></div>
+        .row {
+            background: yellow;
+            font-size: 0;
+        }
+
+        .col {
+            font-size: 15px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .nav {
+            background: black;
+            display: block;
+
+            padding: 12px;
+        }
+
+        .left {
+            background: black;
+            display: inline-block;
+            font-size: 10px;
+            color: white;
+            width: 50%;
+        }
+
+        .right {
+            background: black;
+            display: inline-block;
+            font-size: 10px;
+            color: white;
+            width: 50%;
+            text-align: right;
+        }
+
+        /* a {
+            color: ghostwhite
+        } */
+
+        .first-screen {
+            background: yellow;
+            display: block;
+            /* padding: 300px; */
+        }
+
+        .promotion {
+            background: black;
+            /* padding: 20px; */
+        }
+
+        .category{
+            width: 30%;
+        }
+        .category a {
+            display: block;
+        }
+
+        .carousel {
+            width: 70%;
+        }
+
+        .sales {
+            background: black;
+
+
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row nav">
+        <!--首航-->
+        <div class="col link-group left">
+            <!--链接组 左-->
+            <a href="#">小米商城</a>
+            <a href="#">MIUI</a>
+            <a href="#">云服务</a>
+            <a href="#">水滴</a>
+            <a href="#">Item</a>
         </div>
- </div></div>
-<div class="row footer"><!--页脚-->
-  <div class="row in regard to"><!--关于-->
-     <div class="col link"></div>
-     <div class="col link"></div>
-     <div class="col link"></div>
-     <div class="col link"></div>
-  </div>
-  <div class="row more"><!--更多-->
-      <div class="row related service"><!--相关服务-->
-        <div class="col Service Name">服务名称</div>
-        <div class="col Service Name">服务名称</div>
-        <div class="col Service Name">服务名称</div>
-        <div class="col Service Name">服务名称</div>
-        <div class="col Service Name">服务名称</div>
-        <div class="col Service Name">服务名称</div>
-      </div>
-      <div class="row linkground"><!--链接组-->
-        <div class="col link Name">链接名称</div>
-        <div class="col link Name">链接名称</div>
-        <div class="col link Name">链接名称</div>
-        <div class="col link Name">链接名称</div>
-        <div class="col link Name">链接名称</div>
-        <div class="col link Name">链接名称</div>
-      </div>
-  </div>
-  <div class="row source information"><!--源信息-->
-        <div class="row linkground"></div>
-        <div class="row slogan">探索黑科技 小米为发烧而生</div>
-  </div>
-</div>
+        <div class="col link-group right">
+            <!--链接组 右-->
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+        </div>
+        <br>
+    </div>
+    <div class="row first-screen">
+        <!--首屏-->
+        <div class="row The main promotion">
+            <!--主促销-->
+            <div class="col goods category">
+                <a href="#">item</a>
+                <a href="#">item</a>
+                <a href="#">item</a>
+                <a href="#">item</a>
+                <a href="#">item</a>
+                <a href="#">item</a>
+                <a href="#">item</a>
+            </div>
+            <div class="col carousel">轮播</div>
+        </div>
+        <div class="row Auxiliary promotion">
+            <!--辅促销-->
+
+        </div>
+        <div class="row flash sales">
+            <!--限时抢购-->
+
+        </div>
+
+    </div>
+    <div class="row main">
+        <!--主体-->
+        <div class="row card deck">
+            <!--卡片组-->
+            <div class="row description bar">
+                <!--描述栏-->
+                <div class="col name">名称</div>
+                <div class="col link">链接</div>
+            </div>
+            <div class="row card field">
+                <!--卡片栏-->
+                <div class="col Deck head">
+                    <!--卡片组头-->
+                </div>
+                <div class="row The deck body">
+                    <!--卡片组体-->
+                    <div class="row card row">
+                        <!--卡片行-->
+                        <div class="col card">
+                            <!--卡片-->
+                            <div class="row picture">图片</div>
+                            <div class="row describe">描述</div>
+                            <div class="row price">价格</div>
+                        </div>
+                        <div class="col card">
+                            <!--卡片-->
+                            <div class="row picture">图片</div>
+                            <div class="row describe">描述</div>
+                            <div class="row price">价格</div>
+                        </div>
+                        <div class="col card">
+                            <!--卡片-->
+                            <div class="row picture">图片</div>
+                            <div class="row describe">描述</div>
+                            <div class="row price">价格</div>
+                        </div>
+                        <div class="col card">
+                            <!--卡片-->
+                            <div class="row picture">图片</div>
+                            <div class="row describe">描述</div>
+                            <div class="row price">价格</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer">
+            <!--页脚-->
+            <div class="row in regard to">
+                <!--关于-->
+                <div class="col link"></div>
+                <div class="col link"></div>
+                <div class="col link"></div>
+                <div class="col link"></div>
+            </div>
+            <div class="row more">
+                <!--更多-->
+                <div class="row related service">
+                    <!--相关服务-->
+                    <div class="col Service Name">服务名称</div>
+                    <div class="col Service Name">服务名称</div>
+                    <div class="col Service Name">服务名称</div>
+                    <div class="col Service Name">服务名称</div>
+                    <div class="col Service Name">服务名称</div>
+                    <div class="col Service Name">服务名称</div>
+                </div>
+                <div class="row linkground">
+                    <!--链接组-->
+                    <div class="col link Name">链接名称</div>
+                    <div class="col link Name">链接名称</div>
+                    <div class="col link Name">链接名称</div>
+                    <div class="col link Name">链接名称</div>
+                    <div class="col link Name">链接名称</div>
+                    <div class="col link Name">链接名称</div>
+                </div>
+            </div>
+            <div class="row source information">
+                <!--源信息-->
+                <div class="row linkground"></div>
+                <div class="row slogan">探索黑科技 小米为发烧而生</div>
+            </div>
+        </div>
+</body>
+
+</html>

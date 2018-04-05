@@ -1,0 +1,9 @@
+行 导航栏 row nav
+    列 链接组 左 col link-group left
+        链接 * 
+    列 链接组 右 col link-group right
+        链接 * 3
+行 首屏 row first-screen
+
+行 主体 row main
+行 页脚 row footer

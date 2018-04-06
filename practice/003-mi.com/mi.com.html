@@ -2,81 +2,65 @@
 
 <head>
     <style>
-        * {
-            background-origin: padding-box;
-        }
+    .row{
+        font-size: 0;
+    }
+    .col{
+        font-size: 15px;
+        display: inline-block;
+        
+    }
+    .nav{
+       background:black;
+    }
+    .left{
+        width: 50%;
+        text-align: left;
+    }
+    .right{
+        width: 50%;
+        text-align: right;
+    }
+    .first-screen{
+        background:blueviolet;
+    }
+  
+   .promotion{
+        height: 100px;
+        vertical-align: top;
+    }
+    
+    .category{
+        width: 25%;
+        
+    }
+    .carousel{
+        width:75%;
+    }
+    .first-navigation{
+        background:white;
+        padding: 20px;
 
-        div {
-            background: beige;
-        }
-
-        .row {
-            background: yellow;
-            font-size: 0;
-        }
-
-        .col {
-            font-size: 15px;
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .nav {
-            background: black;
-            display: block;
-
-            padding: 12px;
-        }
-
-        .left {
-            background: black;
-            display: inline-block;
-            font-size: 10px;
-            color: white;
-            width: 50%;
-        }
-
-        .right {
-            background: black;
-            display: inline-block;
-            font-size: 10px;
-            color: white;
-            width: 50%;
-            text-align: right;
-        }
-
-        /* a {
-            color: ghostwhite
-        } */
-
-        .first-screen {
-            background: yellow;
-            display: block;
-            /* padding: 300px; */
-        }
-
-        .promotion {
-            background: black;
-            /* padding: 20px; */
-        }
-
-        .category{
-            width: 30%;
-        }
-        .category a {
-            display: block;
-        }
-
-        .carousel {
-            width: 70%;
-        }
-
-        .sales {
-            background: black;
-
-
-            padding: 20px;
-        }
+    }
+    .logo{
+        width: 5%;
+        
+    }
+ 
+    .linkground2{
+        width: 65%;
+       
+        text-align: center;
+    }
+    .input{
+        width: 30%;
+        
+        text-align:right;
+    }
+    .hyperchannel{
+        background:white;
+        padding: 2px;
+    }
     </style>
 </head>
 
@@ -98,8 +82,16 @@
         </div>
         <br>
     </div>
-    <div class="row first-screen">
-        <!--首屏-->
+    <div class="row first-screen"><!--首屏-->
+<div class="row first-navigation">
+    <div class="col logo">logo</div>
+    <div class="col linkground2">
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+    </div>
+    <div class="col input"><button disabled="disabled"><input>点我</button></div>
+
+</div>
         <div class="row The main promotion">
             <!--主促销-->
             <div class="col goods category">
@@ -115,7 +107,12 @@
         </div>
         <div class="row Auxiliary promotion">
             <!--辅促销-->
-
+<div class="row hyperchannel"> <!--快速通道-->
+    <div class="col icon group">图标组</div>
+    <div class="col picture"><img src="https://item.mi.com/product/10000083.html" alt="假装有图"></div>
+    <div class="col picture"><img src="https://item.mi.com/product/10000080.html" alt="假装有图"></div>
+     <div class="col picture"><img src="https://www.mi.com/water2/" alt="假装有图"></div>
+</div>
         </div>
         <div class="row flash sales">
             <!--限时抢购-->

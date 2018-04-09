@@ -1,49 +1,40 @@
 <style>
-    body {
-        margin: 0;
-    }
-
-    .row {
-        font-size: 0;
-
+    * {
+        background-origin: padding-box;
     }
 
     .right {
         text-align: right;
     }
 
+    body {
+        margin: 0;
+    }
+
+    .row {
+        font-size: 0;
+        display: block;
+    }
+
     .col {
         font-size: 15px;
         display: inline-block;
-       vertical-align: top; /* 向上垂直对齐 */
+        vertical-align: top;
     }
-
-    .nav {
-        border: 1px solid #aaa;
-    }
-
-    .nav>* {
-        vertical-align: middle;/* 居中垂直对齐 */
-    }
-
-    .logo {
-        width: 20%;
+    .nav{
+        border: 1px solid #000;
     }
 
     .logo img {
         width: 50px;
     }
 
-    .link-group {
-        width: 50%;
-
+    .logo {
+        width: 20%;
     }
 
-    .link-group a {
-        padding: 12px;
-        display: inline-block;
-        color: #333;
-        text-decoration: none; /*去除文字装饰 */
+    .link-group {
+        width: 50%;
     }
 
     .search {
@@ -51,11 +42,20 @@
         font-size: 0;
     }
 
+    .nav>* {
+        vertical-align: middle;
+    }
+    .link-group a{
+        color: orangered;
+        display: inline-block;
+        text-decoration: none;
+        padding: 15px;
+    }
     .search input,
-    .search button {
-        padding: 10px;
-        border: 1px solid #aaa;
-        line-height: 1.1;
+    .search button{
+      font-size: 15px;
+      border: 1px solid #000;
+      line-height: 1.1cm;
     }
 </style>
 <div class="row nav">
@@ -63,6 +63,7 @@
         <img src="http://pic.58pic.com/58pic/16/58/07/83g58PIC9er_1024.jpg" alt="图没了">
     </div>
     <div class="col link-group">
+        <a href="#" class="ietm">ietm</a>
         <a href="#" class="ietm">ietm</a>
         <a href="#" class="ietm">ietm</a>
         <a href="#" class="ietm">ietm</a>

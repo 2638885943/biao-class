@@ -208,9 +208,7 @@ person = {
 
 var children = (((person.wife.dad.friends[0].children * person.wife.dad.friends[0].averageScore) +
     (person.wife.dad.friends[1].children * person.wife.dad.friends[1].averageScore) +
-    (person.wife.dad.friends[2].children * person.wife.dad.friends[2].averageScore)
-    
-));
+    (person.wife.dad.friends[2].children * person.wife.dad.friends[2].averageScore)));
 var g = ((person.wife.dad.friends[0].children+person.wife.dad.friends[1].children+person.wife.dad.friends[2].children))
 var h =(children/g);
 console.log(children);

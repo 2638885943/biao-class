@@ -24,8 +24,8 @@ var age_element = document.querySelector('#age');
 
 age_element.addEventListener('change', function () {
     var age = age_element.value.trim();
-    age = parseIent('age');
-
+    age = parseInt(age);
+   console.log('age')
     if (!age) {
         console.log('不填年龄是不允许的');
     }
@@ -49,20 +49,21 @@ age_element.addEventListener('change', function () {
     }
 });
 var phone_element = document.querySelector('#phone');
+
 phone_element.addEventListener('change', function () {
     var phone = phone_element.value.trim();
-
-    if (!phone) {
-        console.log('号码是必填项');
-    }
-    else if (!phone.startsWith('1') ||
-               phone.lenght! = 11 ||
-            !parseInt(phone)
-){
-    console.log('号码格式有误');
-}
-    else {
-    console.log('欢迎登陆');
-}
-
+    console.log('phone');
+    if(!phone){
+console.log('不填就砍死你');
+     }
+     else if(
+        !phone.startsWith('1') ||
+        phone.length != 11 ||
+        !parseInt(phone)
+     ){
+         console.log('看清楚格式 兄dei');
+     }
+     else{
+         console.log('囖');
+     }
 });

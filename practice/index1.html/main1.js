@@ -8,9 +8,9 @@ name_element.addEventListener('change', function () {
         break;
         case '李雷':
         console.log('你掉到坑里了');
-        break;
+        
         case '韩梅梅':
-        console.log('nice too mite you');
+        console.log('nice too meet you');
         break;
         case '大卫':
         console.log('再见');

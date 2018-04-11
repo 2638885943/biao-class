@@ -25,7 +25,7 @@ var age_element = document.querySelector('#age');
 age_element.addEventListener('change', function () {
     var age = age_element.value.trim();
     age = parseInt(age);
-   console.log('age')
+ 
     if (!age) {
         console.log('不填年龄是不允许的');
     }
@@ -52,7 +52,7 @@ var phone_element = document.querySelector('#phone');
 
 phone_element.addEventListener('change', function () {
     var phone = phone_element.value.trim();
-    console.log('phone');
+   
     if(!phone){
 console.log('不填就砍死你');
      }

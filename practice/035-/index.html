@@ -1,0 +1,41 @@
+<!-- <button>yo</button>
+<script>
+    var a = document.querySelector('button')
+    function b(){
+        console.log(1)
+    }
+    a.addEventListener('click',b);
+    a.addEventListener('click',function (){
+        console.log(2);
+    })
+    a.removeEventListener('click',b);
+</script> -->
+
+<style>
+    div {
+      padding: 50px;
+      background: rgba(255, 0, 0, .3);
+    }
+  </style>
+  
+  <div id="box1">
+    <div id="box2">
+      <div id="box3"></div>
+    </div>
+  </div>
+<script>
+    var box1 = document.querySelector('#box1');
+    var box2 = document.querySelector('#box1');
+    var box3 = document.querySelector('#box1');
+    box1.addEventListener('click',function(e){
+        console.log(e.currentTarget)
+    });
+    box2.addEventListener('click',function(e){
+        console.log(e.currentTarget)
+       
+    });
+    box3.addEventListener('click',function(e){
+        console.log(e.currentTarget)
+    });
+    
+</script>  

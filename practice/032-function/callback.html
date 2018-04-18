@@ -1,0 +1,159 @@
+;(function () { 'use strict'; function make_meal(attach, eat_raw, pref) { console.log('========'); console.log('买菜'); if
+(attach) attach(); console.log('洗菜'); if (eat_raw) eat_raw(); console.log('炒菜'); if (pref) pref(); } function buy_pen() {
+console.log('捎纸笔'); } make_meal( buy_pen, function () { console.log('给我个西红柿'); }, function () { console.log('少放盐'); } );
+})();
+<script>
+    function make_meal(a, b, c) {
+        console.log('买菜')
+        if (a) {
+            a();
+        }
+        console.log('洗菜')
+        if (b) {
+            b();
+        }
+        console.log('炒菜')
+        if (c) {
+            c();
+        }
+    }
+    function arr() {
+        console.log('带只笔');
+
+    }
+    function brr() {
+        console.log('西红柿');
+
+    }
+    function crr() {
+        console.log('少放盐');
+
+    }
+
+    make_meal(arr, brr, crr);
+</script> /*睡觉 * @param Function before 睡觉前要做的事情 * */ function sleep(before) { if (before) before(); console.log('睡觉咯'); } /* * 刷牙
+* */ function brush_teeth() { console.log('牙牙乐'); } sleep(brush_teeth);
+<!-- <script>
+    function sleep(a){
+        if(a){
+            a();
+        }
+console.log('碎觉' );
+    }
+     function brush_teeth(){
+         console.log('牙牙乐');
+
+     }
+     sleep(brush_teeth);
+</script> -->
+/*购买 * @param Number money 付了多少钱 * @param Function success 当成功时执行的自定义代码 * @param Function fail 当失败时执行的自定义代码 * */ function
+buy(money, success, fail) { if (money) { console.log('下单成功'); if (success) success(); } else { console.log('下单失败'); if (fail)
+fail(); } } /*当购买游戏（虚拟产品之一）成功时执行的代码*/ function on_game_order_success() { console.log('游戏单，无需实体发货'); } /*当购买T恤（实体产品之一）成功时执行的代码*/
+function on_tshirt_order_success() { console.log('服饰单'); console.log('通知仓库中...') console.log('已通知仓库，发货中...'); } /*下单失败（未付款）时执行的代码*/
+function on_order_fail() { console.log('钱呢'); } buy(100, on_game_order_success, on_order_fail); buy(0, on_tshirt_order_success,
+on_order_fail);
+<!-- <<script>
+  function buy(){
+
+  }
+  </script>
+  <script>
+        // 购买
+        // * @param Number money 付了多少钱
+        // * @param Function success 当成功时执行的自定义代码
+        // * @param Function fail 当失败时执行的自定义代码
+        // * */
+        function buy(money, success, fail) {
+          if (money>0) {
+            console.log('下单成功');
+            if (success)
+              success();
+          } else {
+            console.log('下单失败');
+            if (fail)
+              fail();
+          }
+        }
+        // 当购买游戏（虚拟产品之一）成功时执行的代码
+        function on_game_order_success() {
+          console.log('游戏单，无需实体发货');
+        }
+        /*当购买T恤（实体产品之一）成功时执行的代码*/
+        function on_tshirt_order_success() {
+          console.log('服饰单');
+          console.log('通知仓库中...')
+          console.log('已通知仓库，发货中...');
+        }
+        // 下单失败（未付款）时执行的代码*
+        function on_order_fail() {
+          console.log('钱呢');
+        }
+        buy(100, on_game_order_success, on_order_fail);
+        buy(0, on_tshirt_order_success, on_order_fail);
+      </script> -->
+<!-- <script>
+
+    function buy(a, b, c) {
+        if (a > 0) {
+            console.log('购买成功')
+            if (b) {
+                b();
+            }
+        }
+        else {
+            console.log('购买失败')
+            if (c) {
+                c ();
+            }
+        }
+    }
+    function a() {
+        console.log('虚拟商品 购买成功时执行')
+    }
+    function b() {
+        console.log('实体商品成功时执行')
+    }
+    function c() {
+        console.log('购买失败')
+    }
+    buy(100, a, c);
+    buy(0, b, c);
+</script> -->
+<!-- <script>
+    function arr(a,b,c){
+        console.log('吃饭');
+        if  (a){
+            a();
+        }
+        console.log('睡觉');
+        if  (b){
+           b();
+        }
+        console.log('打豆豆');
+        if  (c){
+            c();
+        }
+    }
+    function brr(){
+        console.log('饭前笑一笑');
+    }
+    function crr(){
+        console.log('睡前先刷牙');
+    }
+    function drr(){
+        console.log('做梦打豆豆');
+    }
+    arr(brr,crr,drr);
+</script> -->
+<script>
+    function shuijiao(a){
+        console.log('睡觉觉');
+        if (a){
+            a();
+        }
+    }
+    function shuaya(){
+        console.log('先刷牙');
+    }
+    shuijiao(shuaya);
+</script>

@@ -1,0 +1,95 @@
+<!-- 表严肃@biaoyansu 几秒前
+<a href="#">链接1</a>
+<span>我是span</span>
+<button>Yo</button>
+<div class="a">我是.a</div>
+<div class="a">我是.a他弟弟</div>
+<div id="a">我是#a</div>
+
+<script>
+  ;(function () {
+    'use strict';
+
+    var btn = document.querySelector('button');
+    var link = document.querySelector('a');
+    var span = document.querySelector('span');
+    var div1 = document.querySelector('.a');
+    var div2 = document.querySelector('#a');
+
+    var div_list = document.querySelectorAll('.a');
+
+    var div1_1 = document.getElementsByClassName('a');
+    var div2_2 = document.getElementById('a');
+
+
+    for (var i = 0; i < div_list.length; i++) {
+      var ele = div_list[i];
+      console.log(ele);
+    }
+    // console.log(btn, link, span, div1, div2, div_list, div1_1, div2_2);
+
+    // btn.addEventListener('click', function () {
+    //   console.log(1);
+    // });
+
+
+  })();
+</script> -->
+<!-- <button>点我</button>>
+<a href="#">链接</a>
+<span>sasa</span>
+<div class="a">我是.a</div>
+<div class="a">我是.a 弟弟</div>
+<div id="a">我是#a</div>
+<script>
+   ;(function(){
+        'use strict';
+        var btn = document.querySelector('button');
+        var link = document.querySelector('a');
+        var span = document.querySelector('sapn');
+        var div1 =document.querySelector('.a');
+        var div2 = document.querySelector('#a');
+        var div_list =document.querySelectorall('.a');
+
+    });
+</script> -->
+<a class="trigger" href="#">yo1</a>
+<input style="boder: 1px solid black;" class="search" type="text">
+<script>
+;(function () {
+    'use strict';
+
+
+var btn = document.querySelector('.trigger');
+var search = document.querySelector('.search');
+btn.addEventListener('mouseenter',function(){
+    event.preventDefault();
+    console.log('鼠标进入')
+   
+
+});
+btn.addEventListener('mouseleave',function(){
+    event.preventDefault();
+    console.log('鼠标离开')
+   
+
+});
+search.addEventListener('focus',function(){
+    event.preventDefault();
+    console.log('鼠标聚焦')
+   
+
+});
+search.addEventListener('blur',function(){
+    event.preventDefault();
+    console.log('鼠标失焦')
+   
+
+});
+
+
+
+  })();
+
+
+</script>

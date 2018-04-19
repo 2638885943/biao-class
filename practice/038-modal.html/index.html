@@ -103,9 +103,10 @@
     hide();
   });
   document.addEventListener('keyup', function (e) {
-    if (e.code == 'Escape') {
+    if (e.code !== 'Escape') 
+      return;
       hide();
-    }
+    
 
-  })
+  });
 </script>

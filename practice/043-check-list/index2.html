@@ -1,0 +1,126 @@
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    label {
+        display: block;
+        padding: 5px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    label:hover {
+        background: rgba(0, 0, 255, .1);
+    }
+</style>
+
+<div>
+    <button id="all">全选</button>
+    <button id="none">全不选</button>
+    <button id="reverse">倒置</button>
+</div>
+
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<label>
+    <input type="checkbox"> Item
+</label>
+<!-- <script>
+    var all = document.querySelector('#all');
+    var none = document.querySelector('#none');
+    var reverse = document.querySelector('#reverse');
+    var list = document.querySelectorAll('[type = checkbox]');
+    all.addEventListener('click',function(){
+        list.forEach(function (item, index) {
+      item.checked = true;
+        });
+    })
+    
+    </script> -->
+<script>
+    var all = document.querySelector('#all');
+    var none = document.querySelector('#none');
+    var reverse = document.querySelector('#reverse');
+    var list = document.querySelectorAll('[type= checkbox]');
+    var origin;  //  起点
+    var destination; //    终点
+    var Off_the_hook;//   起点是否打勾
+    var from_the_top_down; //  从上到下的
+    
+    // all.addEventListener('click', function () {
+    //     list.forEach(function (item, index) {
+        
+    //         item.checked = true;
+
+    //     });
+    // })
+    // none.addEventListener('click', function () {
+    //     list.forEach(function (item, index) {
+    //         item.checked = false;
+    //     });
+    // });
+    // reverse.addEventListener('click', function () {
+    //     list.forEach(function (item, index) {
+    //         item.checked = !item.checked;
+    //     });
+    // });
+    list.forEach(function(item,index){
+item.addEventListener('click',function(e){
+    
+if(e.shiftKey){
+    
+    destination = index;
+    
+    from_the_top_down = origin < destination;
+    
+    list.forEach(function(item,index){
+        
+var state_1 = index < origin || index >destination;
+
+var state_2 = index > origin || index <destination;
+
+var state_3 = (from_the_top_dow && state_1)||(from_the_top_down && state_2)
+
+if(state_3)
+
+return;
+item.checked = Off_the_hook;
+    });
+}
+else{
+    origin = index;
+    Off_the_hook = item.checked;
+}
+})
+    });
+
+</script>

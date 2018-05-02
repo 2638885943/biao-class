@@ -1,0 +1,36 @@
+<form id='search-form'>
+    <input id="search-input" placeholder="来搜一下吧">
+    <button type='submit'>搜</button>
+</form>
+
+<script>
+    var el_search = document.getElementById('search-form');
+    var el_input = document.getElementById('search-input');
+    var kwd
+
+    init();
+
+
+    function init() {
+        submit();
+    }
+
+
+    function submit() {
+        el_search.addEventListener('click', function (e) {
+            e.preventDefault();
+            kwd = el_input.value;
+            search();
+        });
+    }
+
+    function search() {
+        var http = new XMLHttpRequest();
+        http.open('get','https:api.github.com/search/users?q=' + kwd);
+        http.send();
+
+        http.addEventListener('load', function () {
+            console.log(http.responseText);
+        });
+    }
+</script>

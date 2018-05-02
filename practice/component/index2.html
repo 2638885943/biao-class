@@ -1,0 +1,202 @@
+<style>
+ [hidden]
+ {
+     display:none !important;
+ }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #eee;
+        font-family: sans-serif;
+        color: #333;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-weight: lighter;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #777;
+    }
+
+    form {
+        font-size: 0;
+    }
+
+    button,
+    input {
+        font-size: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        outline: 0;
+        color: #555;
+    }
+
+    form input {
+        width: 80%;
+        border-right: 0;
+    }
+
+    form button {
+        width: 20%;
+    }
+
+    .block {
+        display: block;
+        width: 100%;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: auto;
+    }
+
+    .container>* {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #amount {
+        font-size: 80%;
+        color: #aaa;
+    }
+
+    .user {
+        background: white;
+        border: 1px solid rgba(0, 0, 0, .1);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .user>* {
+        display: inline-block;
+        vertical-align: top;
+        padding: 5px;
+        color: #555;
+        font-size: 80%;
+    }
+
+    .user .info>* {
+        margin-bottom: 2px;
+    }
+
+    .username {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .avatar {
+        border-right: 1px solid rgba(0, 0, 0, .1);
+        padding: 0;
+    }
+
+  
+</style>
+
+<div class="container">
+    <h1>GayHub用户搜索</h1>
+    <form id="search-form">
+        <input id="search-input" type="text" autofocus autocomplete="off" placeholder="请输入用户名">
+        <button type="submit">搜索</button>
+    </form>
+    <div id="amount"></div>
+    <div id="user-list"></div>
+    <button id="load-more" class="block" hidden>加载更多</button>
+</div>
+<script>
+    //   获取元素 和 定义全局变量
+    var el_search_form = document.getElementById('search-form');
+    var el_search_input = document.getElementById('search-input');
+    var el_amount = document.getElementById('amount');
+    var el_user_list = document.getElementById('user-list');
+    var el_load_more = document.getElementById('load-more');
+    var keyword;
+    var data;
+    var page = 1;
+    init();
+    // <!-- 开始 一切的源头 -->
+
+    function init() {
+        // <!-- 叫出表单提交函数 -->
+        submit();
+        search_page();
+    }
+
+    //   表单提交函数
+    function submit() {
+        el_search_form.addEventListener('submit', function (e) {
+            e.preventDefault();//   防止跳转
+
+            //  将el_search_input(搜索框中的内容)赋值给全局变量keyword(关键字)
+            keyword = el_search_input.value;
+
+            //叫出搜索函数  
+            search();
+        });
+    }
+
+    // <!-- 搜索函数 -->
+    function search() {
+        //  准备发送请求
+        var http = new XMLHttpRequest();
+        http.open('get', 'https://api.github.com/search/users?q=' + keyword + page);
+        // <!-- 请求发送 -->
+        http.send();
+
+        // <!-- 当数据返回时加载它 并执行转换函数 -->
+        http.addEventListener('load', function () {
+            data = JSON.parse(http.responseText);
+            //   将JSON格式的文本转换成JS可理解的对象并赋值给data(全局变量)
+
+            render();
+            //   叫出渲染函数
+        });
+    }
+
+    // 渲染函数
+    function render() {
+        var html = '';
+        //  没得到数据前我们并不知道如何渲染所以是空字符串
+        data.items.forEach(function (user) {
+            html = html + `<div class="user">
+    <a class="avatar" target="_blank" href="${user.html_url}">
+      <img src="${user.avatar_url}">
+    </a>
+    <div class="info">
+      <div class="username">${user.login}</div>
+      <div><a target="_blank" href="${user.html_url}">${user.html_url}</a></div>
+    </div>
+  </div>`
+
+        });
+
+        el_user_list.innerHTML = html;
+        el_amount.innerHTML = `一共有条${data.total_count}搜索结果`;
+        el_load_more.hidden =false;
+    }
+
+// <!-- 加载更多 -->
+    function search_page() {
+    
+       el_load_more.addEventListener('click',function(){
+        page++
+        search();
+       });
+    }
+</script>

@@ -1,0 +1,220 @@
+<style>
+  [hidden] {
+    display: none !important;
+  }
+
+  body {
+    background: #eee;
+    font-family: sans-serif;
+    color: #333;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 25px;
+    font-weight: lighter;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #777;
+  }
+
+  form {
+    font-size: 0;
+  }
+
+  button,
+  input {
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: 0;
+    color: #555;
+  }
+
+  form input {
+    width: 80%;
+    border-right: 0;
+  }
+
+  form button {
+    width: 20%;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: auto;
+  }
+
+  .container>* {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #amount {
+    font-size: 80%;
+    color: #aaa;
+  }
+
+  .user {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .user>* {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px;
+    color: #555;
+    font-size: 80%;
+  }
+
+  .user .info>* {
+    margin-bottom: 2px;
+  }
+
+  .username {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .avatar {
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    padding: 0;
+  }
+  #top {
+    padding: 10px;
+    color: #fff;
+    background: rgba(0, 0, 0, .6);
+    border: 0;
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+  }
+</style>
+
+<div class="container">
+
+  <h1>GayHub用户搜索</h1>
+  <form id="search-form">
+    <input id="search-input" type="text" autofocus autocomplete="off" placeholder="请输入用户名">
+    <button type="submit">搜索</button>
+  </form>
+  <div id="amount"></div>
+  <div id="user-list"></div>
+
+
+  <button id="load-more" class="block" hidden>加载更多</button>
+</div>
+<div class="toolbar">
+    <button id="top">Top</button>
+<script>
+  var el_search_form = document.getElementById('search-form');
+  var el_search_input = document.getElementById('search-input');
+  var el_amount = document.getElementById('amount');
+  var el_user_list = document.getElementById('user-list');
+  var load_more_page = document.getElementById('load-more')
+  var data;
+  var page = 1;
+  var keyword;
+  var limit = 10;
+  var nomore;
+ 
+  init();//  开始
+
+
+  function init() {
+    submit();// 点击事件的发生
+
+   load_more();
+    
+  }
+
+  function submit() {
+    //  在表单上监听提交事件
+    el_search_form.addEventListener('submit', function (e) {
+      // 防止跳转
+      e.preventDefault();
+      //  获得表单中的数据
+       keyword = el_search_input.value
+      //  传给搜索函数
+      reset_form();
+      reset_userlist();
+      search();
+     
+    });
+  }
+
+  // 搜索函数
+  function search() {
+    // 禁用按钮 防止疯狂点击
+    load_more_page.disabled = true;
+    load_more_page.innerText='加载中...';
+    
+    // 用表单中的数据作为关键字像服务器发送请求
+    var http = new XMLHttpRequest();
+    http.open('get', 'https://api.github.com/search/users?q=' + keyword +page);
+    http.send();// 发送
+
+    //  当数据返回时加载它
+    http.addEventListener('load', function () {
+      // 将JSON格式的文档转换为JS可理解的对象并定义在顶部
+      data = JSON.parse(http.responseText);
+      console.log(data);
+      generate();// 生成并渲染
+      
+    // 当数据返回后重新启用按钮
+      load_more_page.disabled = false;
+    load_more_page.innerText='加载更多';
+      
+    });
+  }
+  //  生成html
+  function generate() {
+    user = el_user_list.innerHTML;
+    //  我们不知道传回来的数据是什么所以是空字符串
+    data.items.forEach(function (item) {
+      console.log(item);
+      user = user + `<div class="user">
+    <img src="${item.avatar_url}">${item.login}
+    <a target="_blank" href="${item.html_url}">${item.html_url}</a>
+  </div>`;
+    });
+
+
+
+
+    el_user_list.innerHTML = user
+
+    el_amount.innerHTML = `共有${data.total_count}条结果`
+    load_more_page.hidden = false;
+  }
+
+// 按钮点击事件
+  function load_more() {
+    load_more_page.addEventListener('click', function () {
+    
+      page++;
+      search();
+    });
+  }
+  
+  function reset_form(){
+page = 1;
+  }
+  function reset_userlist(){
+    el_user_list.innerHTML = '';
+  }
+</script>

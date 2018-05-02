@@ -1,0 +1,23 @@
+<style>
+    img {
+      max-width: 80px;
+    }
+  </style>
+  
+  <form id="search-form">
+    <input id="search-input" type="search" placeholder="随便输个github用户试试">
+    <button type="submit">搜索</button>
+  </form>
+  
+  <div id="user"></div>
+  
+  <script>
+   
+  var http = new XMLHttpRequest();
+  http.open('get','https://api.github.com/users/biaoyansu');
+  http.send();
+
+  http.addEventListener('load',function(){
+     var data =JSON.parse(this.responseText);
+     if()
+  });

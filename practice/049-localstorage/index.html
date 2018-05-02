@@ -1,0 +1,18 @@
+<script>
+// <!-- 往冰箱存数据 -->
+    var data = ['whh','lsd','nbb'];
+// <!-- 加保鲜膜（JSON化） -->
+    var json = JSON.stringify(data);
+// <!-- 存入冰箱  并给它个键值 -->
+    localStorage.setItem('history_list',json);
+</script>
+
+<script>
+// <!-- 从冰箱取出加膜的（也就是被JSON化的）键值 -->
+    var json = localStorage.getItem('history_list');
+        // 撕掉保鲜膜（重新转换为js可识别的对象）
+        data = JSON.parse(json);
+
+        console.log(data);
+
+</script>

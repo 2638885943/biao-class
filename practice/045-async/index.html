@@ -1,0 +1,48 @@
+<button id='x'>点我</button>
+<!-- <script>
+  var timer = setTimeout(function(){
+        console.log('a');
+    } ,1*1000);
+clearTimeout('timer');
+
+var count = 0
+var timer = setInterval(function(){
+    console.log(count);
+    count++;
+    if(count>3){
+        clearInterval(timer);
+    }
+},500);
+ 
+ var x = document.querySelector('#x');
+ function f(){
+     console.log('yo')
+     x.removeEventListener('click',f)
+ }
+ x.addEventListener('click',f)
+
+
+var http = new XMLHttpRequest();
+http.open('get','https://api.github.com/users/biaoyansu')
+http.send();
+
+http.addEventListener('load',function(){
+    var obj = JSON.parse(this.responseText);
+    console.log(obj);
+});
+</script> -->
+
+<script>
+    var x = document.querySelector('#x');
+    x.addEventListener('click', shuju);
+    function shuju() {
+        var http = new XMLHttpRequest();
+        http.open('get', 'https://api.github.com/users/biaoyansu');
+        http.send();
+
+        http.addEventListener('load', function () {
+            var ojb = JSON.parse(this.responseText);
+            console.log(ojb);
+        });
+    }
+</script>

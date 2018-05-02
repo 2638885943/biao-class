@@ -1,0 +1,98 @@
+<style>
+    img {
+        max-width: 40px;
+    }
+
+    .user {
+        background: rgba(0, 0, 200, .3);
+    }
+
+    .user>* {
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<form id="search-form">
+    <input id="search-input" type="text">
+    <button type="submit">搜索</button>
+</form>
+<div id="amount"></div>
+<div id="user-list"></div>
+
+<script>
+    var el_user_list = document.getElementById('user-list');
+    var res;
+    var el_form = document.getElementById('search-form');
+    var el_input = document.getElementById('search-input');
+    var el_amount = document.getElementById('amount');
+
+
+
+    ;
+    // 关键词 你要搜的用户名
+
+    // 返回的数据
+    var res;
+
+    init();// 开始
+
+    // 通过用户名搜索Github用户
+    // @param String keyword关键字 
+    function search(keyword) {
+        // 准备发送请求
+        var http = new XMLHttpRequest();
+        http.open('get', 'https://api.github.com/search/users?q=' + keyword);
+        // 请求发送
+        http.send();
+        //    数据返回后
+        http.addEventListener('load', function () {
+            //    解析（将JSON格式的字符串转换为JS能理解的数据）返回数据
+            res = JSON.parse(http.responseText);
+            render();// 渲染数据
+        });
+    }
+    // 渲染数据
+    function render() {
+        var html = '';// 数据回传之前我们不知道数据所以它是空字符串
+
+        // 遍历用户列表
+        res.items.forEach(function (user) {
+            // 每个用户都追加到HTML后面         
+            html = html + `<div class="user">
+    <img src="${user.avatar_url}">${user.login}
+  </div>`;
+
+        });
+        // 将生成的模板床写入HTML
+        el_user_list.innerHTML = html;
+        el_amount.innerHTML = `共有${res.total_count}条结果`;
+    }
+
+
+
+    function init() {
+
+
+        submit();
+
+
+    }
+
+    function submit() {
+    //    搜索栏上监听事件
+        el_form.addEventListener('submit', function (e) {
+            e.preventDefault();// 防止跳转
+        //    拿到搜索框中的数据
+            var keyword = el_input.value;
+            if (!keyword) {
+                alert('住手！！！ 尔康o((≧▽≦o)输入个关键字吧');
+                return;
+
+            }
+
+            search(keyword);
+        });
+
+    }
+
+</script>

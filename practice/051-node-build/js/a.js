@@ -1,3 +1,4 @@
 var a =1;
 
 module.exports = a;
+// 输出

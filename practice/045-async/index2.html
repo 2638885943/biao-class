@@ -1,0 +1,27 @@
+<button id='ds'>点我</button>
+<script>
+  var qs = document.querySelector('#ds');
+  var url = 'https://api.github.com/search/users?q=biaoyansu';
+   function send(url, fn, methed) {
+      methed = methed || 'get';
+      var http = new XMLHttpRequest();
+      http.open(methed, url);
+      http.send();
+      http.addEventListener('load', function () {
+        var data = JSON.parse(this.responseText);
+        if (fn)
+          fn(data);
+      });
+    }
+
+    function search(data) {
+      qs.addEventListener('click', function (e) {
+        e.preventDefault();
+      
+       console.log(1);
+
+      });
+    }
+
+  
+</script>

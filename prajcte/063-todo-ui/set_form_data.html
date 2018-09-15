@@ -1,0 +1,80 @@
+<meta charset="utf-8">
+<form id="todo-form">
+    <input name="name" type="text" value="yo">
+    <br>
+    <label>
+        <input name="completed" type="checkbox">完成
+    </label>
+    <br>
+    <button type="submit">添加任务</button>
+</form>
+
+<script>
+    ; (function () {
+        'use strict';
+        //     var row = {};
+        //     var name = document.querySelector('[name=name]');
+        //     var completed = document.querySelector('[name=completed]')
+        //     row.name = name.value
+        //     row.completed = completed.value
+        //     console.log(row)
+
+        // =============== 分割线 ==============
+
+        //     function ger_form_data(form_selector) {
+        //         var data = {};
+
+        //         var form = document.querySelector(form_selector)
+        //         var list = form.querySelectorAll('[name]');
+
+        //         list.forEach(function (input) {
+
+        //             data[input.name] = input.value;
+        //         })
+        //         return data;
+        //     }
+        //     var row = ger_form_data('#todo-form')
+        // console.log(row) 
+
+        // <!-- ======= 分割线 ======= -->
+
+        // <!-- 通过传入的表单选择器的 信息  动态的生成对象 -->
+        function get_form_data(form_selector) {
+            //    数据在生成之前谁也不知道他是啥 就给个空对象
+            var data = {}
+            // 选中传进来的表单选择器
+            var form = document.querySelector(form_selector);
+
+            //    选中该表单中中所有带有name的元素
+            var list = form.querySelectorAll('[name]');
+            //  迭代该表单 让他中的每一个 input
+            list.forEach(function (input) {
+
+                switch (input.nodeName) {
+                    case 'INPUT':
+                        switch (input.type) {
+                            case 'text':
+                            case 'search':
+                            case 'number':
+                            case 'paseword':
+                                // 如果是字符类数据    //  键名等于 input的内容 使用用户输入的值
+                                data[input.name] = input.value;
+                                break;
+                            case 'radio':
+                            case 'checkbox':
+                                // 如果是boolean(布尔值)   //  键名等于 input的checkbox的状态 使用用户输入的值
+                                data[input.name] = input.checked;
+                                break;
+                        }
+
+                }
+
+            });
+            return data
+        }
+
+        // <!-- 传入一个表单选择器 拿到其中的 数据生成对象 -->
+        var row = get_form_data('#todo-form');
+        console.log(row)
+    })();
+</script>

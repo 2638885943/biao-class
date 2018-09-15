@@ -1,0 +1,77 @@
+<script>
+        var max_id = 101;
+    var todo_list = [
+        {
+            id: 100,
+            name: '买菜',
+            completed: false,
+        },
+        {
+            id: 101,
+            name: '洗菜',
+            completed: false,
+        }
+    ]
+
+
+// <!-- 增 -->
+function add(rew){
+// <!-- id单独管理 -->
+rew.id = ++max_id
+// <!-- 核心 -->
+todo_list.push(rew)
+}
+
+
+// <!-- 删 -->
+function remove(id){
+
+var index = find_by_id_index(todo_list,id)
+
+// <!-- 核心 -->
+todo_list.splice(index,1)
+}
+
+
+// <!--  改 -->
+
+function update(id,new_row){
+var index = find_by_id_index(todo_list,id)
+var old_row = todo_list[index]
+// <!-- 核心 -->
+ todo_list[index] = Object.assign({},old_row,new_row)
+}
+
+
+// <!-- 查 -->
+function read(id){
+    if(id)
+    return find_id_by(todo_list,id)
+    return todo_list
+}
+
+// <!-- 通过id找元素 -->
+function find_id_by(arr,id){
+return    arr.find(function (row){
+  return  row.id === id
+    });
+}
+
+
+// <!-- 通过id找索引 -->
+function find_by_id_index(arr,id){
+   return  arr.findIndex(function (row){
+   return  row.id == id
+    });
+}
+
+// add({ name: '吃饭',
+//             completed: true});
+//             console.log(todo_list);
+// remove(100)
+// console.log(todo_list);
+// update(101,{name:'打架'});
+// console.log(todo_list);
+
+console.log(read(101))
+</script>

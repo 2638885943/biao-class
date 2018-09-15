@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body>
+
+    <!-- <div id="app">
+
+        v-on: (当xxx怎么样时 用给元素来绑定事件 可以用 @ 来代替)
+        <form @submit.prevent="onSubmit">
+            <input type="text" @keyup.q="onEnter" v-on="{focus:onFocus,blur:onBlur}">
+            <button @click="alert">点我</button>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <script src="./node_modules\vue\dist\vue.js"></script>
+    <script src="./index.js"></script> -->
+
+    <!-- ======= 分割线 =======-->
+
+ <!-- v-model (用来完成input中数据的双向绑定) -->
+ <!-- <div id="app">
+        <!-- <input type="text" v-model="name"> -->
+        <!-- <input type="text" v-model.lazy="name">(修饰符 .lazy 惰性更新 也就是输入框失焦后才会更新) -->
+        <!-- <input type="text" v-model.trim="name">(修饰符 .trim 清除空格) -->
+        <!-- <input type="text" v-model.number="name">(修饰符 .number 将输入框中的内容转换成数字类型) -->
+       <!-- <div>{{name}}</div>
+       <script src="./node_modules\vue\dist\vue.js"></script>
+       <script src="./index.js"></script> -->
+
+     <!-- ======= 分割线 =======-->
+
+<!-- v-module 在input之外的元素上的用法-->
+<div id="app">
+   <!-- 单选 -->
+    <!-- <label>
+        男
+        <input type="radio" value="male" v-model="sex">
+    </label>
+    <label>
+            女
+            <input type="radio" value="female" v-model="sex">
+        </label>
+<div>{{sex}}</div> -->
+
+<!-- 复选 -->
+<!-- <label>
+        男
+        <input type="checkbox" value="male" v-model="sex">
+    </label>
+    <label>
+            女
+            <input type="checkbox" value="female" v-model="sex">
+        </label>
+<div>{{sex}}</div> -->
+
+<!-- 文本域
+<textarea v-model="article"></textarea> -->
+
+<div>你从哪来</div>
+<select v-model="from">
+<option value="1">东土大唐</option>
+<option value="2">幻想乡</option>
+<option value="3">背背山</option>
+
+
+</select> 
+{{from}}
+
+<div>李要去哪</div>
+<select v-model="go" multiple>
+<option value="1">灵山圣境</option>
+<option value="2">灵霄宝殿</option>
+<option value="3">龙虎山斩魔台</option>
+<option value="4">武当上清宫</option>
+<option value="5">中土世界</option>
+<option value="3">星辰大海</option>
+</select> 
+{{go}}
+</div>
+
+
+
+  <script src="./node_modules\vue\dist\vue.js"></script>
+       <script src="./index.js"></script> 
+</body>
+
+
+
+</html>

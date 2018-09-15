@@ -1,0 +1,206 @@
+<!-- <script>
+
+// function A(){
+//     this.name = 'hh'
+//     this.age = 48
+// }
+// A.prototype.Lname='w'
+
+// function B(){
+// A.call(this)
+// }
+// B.prototype=Object.create(A.prototype)
+// var c = new B() 
+// console.log(c)
+// </script>
+// <script>
+//     function An(){
+
+//     }
+//     An.prototype.an1()
+</script> -->
+<script>
+    // var max_id = 2;
+    // var list = [
+
+    //     {
+    //         id: 1,
+    //         name: 'whh',
+    //         age: 10
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'fengbo',
+    //         age: 20
+    //     }
+
+    // ]
+
+
+    // // 增
+
+    // function add(row) {
+    //     id = ++max_id;
+    //     list.push(row);
+    // }
+
+
+    // //删
+
+    // function remove(id) {
+    //     var index = find_by_id_index(list, id);
+
+    //     list.splice(index, 1);
+    // }
+
+
+    // // 改
+
+    // function update(id, new_row) {
+    //     var index = find_by_id_index(list, id);
+    //     var old_row = list[index];
+    //     list[index] = Object.assign({}, old_row, new_row);
+    // }
+
+
+    // // 查
+    // function read(id) {
+    //     if (id)
+    //         return find_by_id(list, id);
+    //     return list;
+
+    // }
+
+    // // 通过id找元素
+    // function find_by_id(arr, id) {
+
+    //     return arr.find(function (row) {
+    //         return row.id == id
+    //     });
+    // }
+
+    // // 通过id找索引
+    // function find_by_id_index(arr, id) {
+    //     return arr.findIndex(function (row) {
+    //         return row.id == id
+
+    //     });
+    // }
+    // // add({
+    // //     name:'ws',
+    // //     age:50
+    // // })
+    // // console.log(list)
+    // // remove(1)
+    // // console.log(list)
+    // // console.log(read(2))
+    // update(2, {
+    //     age:25
+    // })
+    // console.log(list)
+    
+    
+    
+    
+    
+    function Api(list,max_id) {
+     this.list = list || [];
+     this.max_id = max_id || 1; 
+
+    }
+
+
+    var todo_list = [
+        {
+            id: 1,
+            name: 'whh',
+            age: 18,
+        }
+        , {
+            id: 2,
+            name: 'lsd',
+            age: 20,
+        }
+    ]
+
+
+    Api.prototype.add_or_read = add_or_read;
+    Api.prototype.remove = remove;
+    Api.prototype.update = update;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 通过传入一条数据来实现增加一条数据
+    function add_or_read(id,row) {
+        
+        if (id && !row && id!==0) {
+            return  find_by_id(this.list, id)
+            
+          
+        }
+        else if (!id && !row) {
+           return this.list
+        }
+        else {
+            this.max_id = this.max_id+1;
+            row.id = this.max_id;
+           this.list.push(row);
+        }
+
+
+    }
+
+    // 通过传入一个id来实现清除一条数据
+    function remove(id) {
+        var index = find_by_id_index(this.list, id);
+        this.list.splice(index, 1);
+    }
+
+    // 通过传入一个id和一条新数据实现更改传入id所在数据的内容
+    function update(id, new_row) {
+        var index = find_by_id_index(this.list, id);
+        delete new_row;
+        var old_row = this.list[index]
+        this.list[index] = Object.assign({}, old_row, new_row)
+    }
+
+
+
+    // 通过id找元素
+    function find_by_id(arr, id) {
+        return arr.find(function (row) {
+            return row.id == id
+        });
+
+    }
+
+    // 通过id找索引
+    function find_by_id_index(arr, id) {
+        return arr.findIndex(function (row) {
+            return row.id == id
+        });
+    }
+
+var person = {
+    fname:'花花',
+    lname:'wang',
+    fullname:function (){
+        return this.lname + this.fname
+    }
+    
+}
+
+console.log(person.fullname())
+
+</script>

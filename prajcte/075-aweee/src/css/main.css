@@ -1,0 +1,154 @@
+body {
+  background-color: #ef30e257;
+    background-image: url("../img/bg.png");
+  
+  }
+  
+  .row {
+    display: block;
+    font-size: 0px;
+  }
+  
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  
+  .col-lg-1 {
+    width: 8.333333333%;
+  }
+  
+  .col-lg-2 {
+    width: 16.666666666%;
+  }
+  
+  .col-lg-3 {
+    width: 25%;
+  }
+  
+  .col-lg-4 {
+    width: 33.3333333333%;
+  }
+  
+  .col-lg-5 {
+    width: 41.6666666666%;
+  }
+  
+  .col-lg-6 {
+    width: 50%;
+  }
+  
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+  
+  .col-lg-8 {
+    width: 66.666666666%;
+  }
+  
+  .col-lg-9 {
+    width: 75%;
+  }
+  
+  .col-lg-10 {
+    width: 83.33333333333%;
+  }
+  
+  .col-lg-11 {
+    width: 91.66666666666%;
+  }
+  
+  .col-lg-12 {
+    width: 100%;
+  }
+  
+  .nav1 {
+    background-color:#7fb5e21a;
+    border: 4px solid #2d1712;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 10px 0;
+    position: relative;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  
+  .right {
+    text-align: right;
+  }
+  
+  .nav1 .nav1-item {
+    padding: 20px;
+  }
+  
+  .nav1,
+  .round {
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  [class*="col-"],
+  .col {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  .slider {
+    margin: 10px 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #2307fd;
+  }
+  
+  .fooder {
+    text-align: center;
+  }
+  
+  .head .logo {
+    font-size: 50px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-style: italic;
+    position: absolute;
+    top: -5px;
+  }
+  
+  .wh {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .nav1 .nav1-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: red;
+  }
+  
+  .pro {
+    position: relative;
+  }
+  
+  .slider:hover .mask,
+  .slider:hover .detail-list {
+    opacity: 1;
+  }
+  
+  .mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+  }
+  .content{
+    background: #fff;
+  }
